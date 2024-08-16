@@ -34,7 +34,7 @@ const Header: React.FC = () => {
                     <span></span>
                 </div>
             </header>
-            <div className={`${styles.sideMenu} ${isMenuActive ? styles.open : ''}`}>
+            <div className={`${styles.menu} ${isMenuActive ? styles.open : ''}`}>
                 <ul>
                     <li onClick={handleHmb}><Link href={`/?lang=${lang}`}>Top</Link></li>
                     <li onClick={handleHmb}><Link href={`/development?lang=${lang}`}>Development</Link></li>

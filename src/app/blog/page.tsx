@@ -1,4 +1,4 @@
-import styles from '../css/blog.module.scss';
+import styles from '../../css/blog.module.scss';
 
 interface Props {
     searchParams: {lang?: string};

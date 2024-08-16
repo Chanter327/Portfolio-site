@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import MenuCircle from './components/MenuCircle';
-import Contact from './components/Contact';
-import styles from './css/home.module.scss';
+import MenuCircle from '../components/MenuCircle';
+import Contact from '../components/Contact';
+import styles from '../css/page.module.scss';
 
 interface Props {
   searchParams: {lang?: string};
