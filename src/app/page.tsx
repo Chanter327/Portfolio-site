@@ -19,7 +19,7 @@ const Top: React.FC<Props> = ({searchParams}) => {
         <div className={styles.ballContainer}><div className={styles.ball}></div></div>
       </div>
       <div className={styles.subTheme}>
-        {lang === 'ja' ? '- 過程に価値を -' : '- Find values in each phase -'}
+        {lang === 'ja' ? '- 過程に価値を -' : '- Find values in every phase -'}
       </div>
       <div className={styles.themeDesc}>
         {lang === 'ja' ? (
