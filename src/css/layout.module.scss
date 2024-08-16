@@ -2,8 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
 .html {
-    width: 100vw;
-    height: 100vh;
     overflow-x: hidden;
     background-color: #1f1f1f;
     color: white;
@@ -16,13 +14,15 @@
 }
 
 .body {
-    width: 100%;
-}
-
-.wrapper {
-    width: 95%;
-    margin: auto;
-    padding-top: 10px;
+    width: 100vw;
+    overflow-x: hidden;
+    .wrapper {
+        width: 95%;
+        margin: auto;
+        padding-top: 10px;
+        overflow-x: hidden;
+        background-color: #1f1f1f;
+    }
 }
 
 .header {
@@ -147,19 +147,18 @@
     }
 }
 
-.sideMenu {
+.menu {
     position: absolute;
     top: 0;
-    left: 100%;
-    width: 30vw;
+    left: 0;
+    width: 100vw;
     height: 100vh;
     background-color: #1f1f1f;
-    transition: 0.3s;
-    z-index: 99;
+    z-index: -1;
     display: grid;
     align-items: center;
     &.open {
-        left: 70%;
+        z-index: 99;
     }
     ul {
         list-style: none;
@@ -182,18 +181,6 @@
                     background-color: rgba(#555, 0.7);
                 }
             }
-        }
-    }
-    @media screen and (max-width: 800px) {
-        width: 50vw;
-        &.open {
-            left: 50%;
-        }
-    }
-    @media screen and (max-width: 500px) {
-        width: 100vw;
-        &.open {
-            left: 0;
         }
     }
 }

@@ -1,7 +1,7 @@
 'use client';
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import styles from '../css/home.module.scss';
+import styles from '../css/page.module.scss';
 
 const MenuCircle: React.FC<{link: string, text: string, isNavi: boolean}> = ({link, text, isNavi=true}) => {
     const searchParams = useSearchParams();

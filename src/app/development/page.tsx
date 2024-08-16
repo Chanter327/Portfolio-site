@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import styles from '../css/development.module.scss';
+import styles from '../../css/development.module.scss';
 
 interface Props {
     searchParams: {lang?: string};
