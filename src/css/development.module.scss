@@ -1,0 +1,71 @@
+.container {
+    display: flex;
+    width: 100%;
+    min-height: 400px;
+    margin-top: 50px;
+    &:not(:nth-of-type(1)) {
+        margin-top: 30px;
+    }
+    .image {
+        flex: 1;
+        display: grid;
+        align-items: center;
+        background-color: #555;
+        border-radius: 10px;
+        img {
+            display: block;
+            width: 80%;
+            height: auto;
+            margin: auto;
+        }
+    }
+    .desc {
+        flex: 1;
+        padding: 0 0 0 20px;
+        .title {
+            font-size: 2.8rem;
+            border-bottom: 1px solid #999;
+        }
+        .text {
+            margin-top: 20px;
+            font-size: 1.6rem;
+        }
+        .techStack {
+            margin-top: 30px;
+            dl {
+                dt {
+                    font-size: 2rem;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
+                dd {
+                    font-size: 1.6rem;
+                    padding-left: 20px;
+                    a {
+                        text-decoration: none;
+                        color: #39e514;;
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 800px) {
+        min-height: 350px;
+    }
+    @media screen and (max-width: 600px) {
+        display: block;
+        .image {
+            padding: 20px;
+            img {
+                width: 95%;
+            }
+        }
+        .desc {
+            padding: 0;
+            margin-top: 20px;
+            .title {
+                font-size: 2.2rem;
+            }
+        }
+    }
+}
