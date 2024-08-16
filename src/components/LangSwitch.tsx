@@ -22,7 +22,7 @@ const LangSwitch: React.FC<{ params: { lang: string } }> = ({ params }) => {
   };
 
   return (
-    <div className={styles.changeLanguage} onClick={switchLanguage}>
+    <div className={styles.switchLanguage} onClick={switchLanguage}>
       <div className={`${styles.language} ${lang === 'ja' ? styles.active : ''}`}>ja</div>
       <div className={styles.switch}>
         <div className={`${styles.switchBall} ${lang === 'ja' ? styles.ja : ''}`}></div>

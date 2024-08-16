@@ -14,9 +14,9 @@ const Top: React.FC<Props> = ({searchParams}) => {
   return (
     <main className={styles.main}>
       <div className={styles.theme}>
-        <div>Value</div>
-        <div>Each</div>
-        <div>Phase.</div>
+        <div></div>
+        <div></div>
+        <div className={styles.ballContainer}><div className={styles.ball}></div></div>
       </div>
       <div className={styles.subTheme}>
         {lang === 'ja' ? '- 過程に価値を -' : '- Find values in each phase -'}
@@ -47,7 +47,7 @@ const Top: React.FC<Props> = ({searchParams}) => {
           {lang === 'ja' ? (
             <span>
               サイト制作に携わったことをきっかけにITの技術に惹かれ、<br />
-              2023年からWeb開発の学習を始めました。<br />
+              2023年から本格的にWeb開発の学習を始めました。<br />
               現在はアプリケーション開発やWeb開発をしています。<br />
               ユーザーに親しまれやすく、UI, UXを重視したデザインを<br />
               心がけるとともに、クライアントからの要望を正確に再現し、<br />
