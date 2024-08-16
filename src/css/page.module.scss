@@ -14,8 +14,8 @@
     font-weight: 500;
     div {
         flex: 1;
-        height: 11vw;
-        line-height: 11vw;
+        height: 14vw;
+        line-height: 14vw;
         position: relative;
         overflow: hidden;
         text-align: center;
@@ -37,7 +37,7 @@
         &:nth-of-type(2) {
             &::after {
                 animation-delay: 0.8s;
-                content: 'Each';
+                content: 'Every';
             }
         }
         &:nth-of-type(3) {
@@ -68,10 +68,13 @@
         width: 100%;
         div {
             width: 53vw;
-            height: 18vw;
+            height: 23vw;
             font-size: 18vw;
-            line-height: 18vw;
+            line-height: 23vw;
             text-align: left;
+            &:not(:first-of-type) {
+                margin-top: -30px;
+            }
             &.ballContainer {
                 .ball {
                     position: absolute;
@@ -91,8 +94,11 @@
         div {
             font-size: 26vw;
             width: 77vw;
-            height: 26vw;
-            line-height: 26vw;
+            height: 33vw;
+            line-height: 33vw;
+            &:not(:first-of-type) {
+                margin-top: -10px;
+            }
             &.ballContainer {
                 .ball {
                     position: absolute;
@@ -115,29 +121,29 @@
 
 @keyframes bounce {
     0% { bottom: 240px; opacity: 1; animation-timing-function: ease-in; }
-    25% { bottom: 1.2vw; opacity: 1; animation-timing-function: ease-out; }
-    50% { bottom: 8vw; opacity: 1; animation-timing-function: ease-in; }
-    75% { bottom: 1.2vw; opacity: 1; animation-timing-function: ease-out; }
-    87% { bottom: 3vw; opacity: 1; animation-timing-function: ease-in; }
-    100% { bottom: 1.2vw; opacity: 1; }
+    25% { bottom: 2.8vw; opacity: 1; animation-timing-function: ease-out; }
+    50% { bottom: 8.4vw; opacity: 1; animation-timing-function: ease-in; }
+    75% { bottom: 2.8vw; opacity: 1; animation-timing-function: ease-out; }
+    87% { bottom: 4.2vw; opacity: 1; animation-timing-function: ease-in; }
+    100% { bottom: 2.8vw; opacity: 1; }
 }
 
 @keyframes bounce800 {
     0% { bottom: 240px; opacity: 1; animation-timing-function: ease-in; }
-    25% { bottom: 1.6vw; opacity: 1; animation-timing-function: ease-out; }
-    50% { bottom: 12vw; opacity: 1; animation-timing-function: ease-in; }
-    75% { bottom: 1.6vw; opacity: 1; animation-timing-function: ease-out; }
-    87% { bottom: 4vw; opacity: 1; animation-timing-function: ease-in; }
-    100% { bottom: 1.6vw; opacity: 1; }
+    25% { bottom: 4.3vw; opacity: 1; animation-timing-function: ease-out; }
+    50% { bottom: 13vw; opacity: 1; animation-timing-function: ease-in; }
+    75% { bottom: 4.3vw; opacity: 1; animation-timing-function: ease-out; }
+    87% { bottom: 6.5vw; opacity: 1; animation-timing-function: ease-in; }
+    100% { bottom: 4.3vw; opacity: 1; }
 }
 
 @keyframes bounce500 {
     0% { bottom: 240px; opacity: 1; animation-timing-function: ease-in; }
-    25% { bottom: 2.2vw; opacity: 1; animation-timing-function: ease-out; }
-    50% { bottom: 17vw; opacity: 1; animation-timing-function: ease-in; }
-    75% { bottom: 2.2vw; opacity: 1; animation-timing-function: ease-out; }
-    87% { bottom: 6vw; opacity: 1; animation-timing-function: ease-in; }
-    100% { bottom: 2.2vw; opacity: 1; }
+    25% { bottom: 6vw; opacity: 1; animation-timing-function: ease-out; }
+    50% { bottom: 18vw; opacity: 1; animation-timing-function: ease-in; }
+    75% { bottom: 6vw; opacity: 1; animation-timing-function: ease-out; }
+    87% { bottom: 9vw; opacity: 1; animation-timing-function: ease-in; }
+    100% { bottom: 6vw; opacity: 1; }
 }
 
 .subTheme {
