@@ -4,8 +4,8 @@ import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import styles from '../css/layout.module.scss';
 import LangSwitch from './LangSwitch';
-const Header: React.FC = () => {
 
+const Header: React.FC = () => {
     const params = useSearchParams();
     const lang: string = params.get('lang') || 'ja';
 
