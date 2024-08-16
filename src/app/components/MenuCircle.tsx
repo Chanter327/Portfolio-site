@@ -1,9 +1,13 @@
+'use client';
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import styles from '../css/home.module.scss';
 
-const MenuCircle: React.FC<{link: string, text: string}> = ({link, text}) => {
+const MenuCircle: React.FC<{link: string, text: string, isNavi: boolean}> = ({link, text, isNavi=true}) => {
+    const searchParams = useSearchParams();
+    const lang = searchParams.get('lang');
     return (
-        <Link href={link} className={styles.menu}>
+        <Link href={isNavi ? `${link}?lang=${lang || 'ja'}` : `/?lang=${lang}${link}`} className={styles.menu}>
             <div className={styles.menuInline}>
                 <div>{text}</div>
             </div>

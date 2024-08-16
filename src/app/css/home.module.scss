@@ -118,6 +118,9 @@
     width: 80vw;
     margin: auto;
     margin-top: 50px;
+    @media screen and (max-width: 800px) {
+        width: 100%;
+    }
     &.about {
         .container {
             display: flex;
@@ -159,7 +162,7 @@
             @media (hover: hover) {
                 &:hover {
                     .toDetailArrow {
-                        width: 40vw;
+                        width: 16rem;
                     }
                 }
             }
@@ -272,7 +275,7 @@
             font-size: 1.6rem;
             width: 12rem;
             margin: auto;
-            margin-top: 20px;
+            margin-top: 40px;
             padding: 5px;
             transition: 0.3s;
             &::before {

@@ -2,17 +2,11 @@
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 import styles from '../css/layout.module.scss';
-import { useEffect } from 'react';
 
 const PageInfo: React.FC = () => {
-    const getUrl = (): string => {
-        const pathname = usePathname();
-        const searchParams = useSearchParams();
-        const currentUrl = `${pathname}${searchParams.toString() ? `?${searchParams.toString()}` : ''}`;
-        return currentUrl;
-    }
-
-    let url: string = getUrl();
+    const url: string = usePathname();
+    const searchParams = useSearchParams();
+    const lang = searchParams.get('lang');
     const modifyUrl = (url: string): string | null => {
         // 最初の文字を削除し、2文字目を大文字にする
         if (url.length >= 2) {
@@ -23,12 +17,9 @@ const PageInfo: React.FC = () => {
         return null;
     }
     const modifiedUrl: string | null = modifyUrl(url);
-    useEffect(() => {
-        console.log(url);
-    }, [url]);
-    if (url !== '/') {
+    if (url !== '/' && url.charAt(1) !== '?') {
         return (
-            <div className={styles.pageInfo}><Link href={'/'}>Top</Link> - {modifiedUrl && modifiedUrl}</div>
+            <div className={styles.pageInfo}><Link href={`/?lang=${lang}`}>Top</Link> - {modifiedUrl && modifiedUrl}</div>
         );
     }
 }
