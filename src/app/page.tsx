@@ -86,9 +86,9 @@ const Top: React.FC<Props> = ({searchParams}) => {
           </Link>
         </div>
         <div className={styles.showCase}>
-          <div className={styles.sample}><Image src={'/nabe2-management.png'} alt='NABE2 management' width={80} height={80} unoptimized /></div>
-          <div className={styles.sample}><Image src={'/irorodot-s.png'} alt='iroro.s' width={80} height={80} unoptimized /></div>
-          <div className={styles.sample}><Image src={'/portfolio.png'} alt='portfolio' width={80} height={80} unoptimized /></div>
+          <div className={styles.sample}><Image src={'/nabe2-management.png'} alt='NABE2 management' width={500} height={350} /></div>
+          <div className={styles.sample}><Image src={'/irorodot-s.png'} alt='iroro.s' width={500} height={350} /></div>
+          <div className={styles.sample}><Image src={'/portfolio.png'} alt='portfolio' width={500} height={350} /></div>
         </div>
       </div>
 
