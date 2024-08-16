@@ -1,95 +1,124 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from 'next/link';
+import Image from 'next/image';
+import MenuCircle from './components/MenuCircle';
+import Contact from './components/Contact';
+import styles from './css/home.module.scss';
 
-export default function Home() {
+const Home: React.FC = () => {
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+      <div className={styles.theme}>
+        <div>Value</div>
+        <div>Each</div>
+        <div>Phase.</div>
+      </div>
+      <div className={styles.subTheme}>- 過程に価値を -</div>
+      <div className={styles.themeDesc}>
+        成果や結果だけに限らず、プロジェクトや学習など全ての過程に<br />
+        価値を見出すことで更なる成長につなげることを重要視して活動しています。
+      </div>
+      <div className={styles.menuContainer}>
+        <MenuCircle link='#skills' text='Skills' />
+        <MenuCircle link='/development' text='Dev' />
+        <MenuCircle link='/blog' text='Blog' />
+      </div>
+
+      {/* About */}
+      <div className={`${styles.content} ${styles.about}`}>
+        <div className={styles.title}>About me</div>
+        <div className={styles.text}>
+            サイト制作に携わったことをきっかけにITの技術に惹かれ、<br />
+            2023年からWeb開発の学習を始めました。<br />
+            現在はアプリケーション開発やWeb開発をしています。<br />
+            ユーザーに親しまれやすく、UI, UXを重視したデザインを<br />
+            心がけるとともに、クライアントからの要望を正確に再現し、<br />
+            デザインからコーディング、公開まで全過程を丁寧に実現します。
+          </div>
+      </div>
+
+      {/* Development */}
+      <div className={`${styles.content} ${styles.dev}`}>
+        <div className={styles.title}>Development</div>
+        <div className={styles.text}>
+          プロジェクトや個人で開発したアプリケーションなどを
+          一部紹介します。
+          <Link href={'/development'} className={styles.toDetail}>
+            <p>詳細を見る</p>
+            <div className={styles.toDetailArrow}></div>
+          </Link>
+        </div>
+        <div className={styles.showCase}>
+            <div className={styles.sample}><Image src={'/nabe2-management.png'} alt='NABE2 management' width={80} height={80} unoptimized /></div>
+            <div className={styles.sample}><Image src={'/irorodot-s.png'} alt='iroro.s' width={80} height={80} unoptimized /></div>
+            <div className={styles.sample}><Image src={'/portfolio.png'} alt='portfolio' width={80} height={80} unoptimized /></div>
+          </div>
+      </div>
+
+      {/* Skills */}
+      <div className={`${styles.content} ${styles.skills}`} id='skills'>
+        <div className={styles.title}>Skills</div>
+        <div className={styles.text}>
+          経験のある開発言語やツールを紹介します。
+        </div>
+        <div className={styles.skills}>
+          <div className={styles.skillDetail}>
+            <div className={styles.title}>Frontend</div>
+            <p>言語</p>
+            <ul>
+              <li>- HTML</li>
+              <li>- CSS, Sass</li>
+              <li>- JavaScript</li>
+              <li>- TypeScript</li>
+            </ul>
+            <p>フレームワークなど</p>
+            <ul>
+              <li>- React</li>
+              <li>- Next.js</li>
+              <li>- Nuxt.js</li>
+              <li>- Node.js</li>
+            </ul>
+          </div>
+          <div className={styles.skillDetail}>
+            <div className={styles.title}>Backend</div>
+            <p>言語</p>
+            <ul>
+              <li>- Ruby</li>
+              <li>- Python</li>
+              <li>- Go</li>
+            </ul>
+            <p>フレームワークなど</p>
+            <ul>
+              <li>- Ruby on Rails</li>
+              <li>- Flask</li>
+              <li>- Gin Gonic</li>
+            </ul>
+          </div>
+          <div className={styles.skillDetail}>
+            <div className={styles.title}>Tools</div>
+            <p>ツール</p>
+            <ul>
+              <li>- git, GitHub</li>
+              <li>- Docker</li>
+              <li>- Figma</li>
+            </ul>
+            <p>デプロイ</p>
+            <ul>
+              <li>- Render</li>
+              <li>- Netlify</li>
+              <li>- Vercel</li>
+            </ul>
+          </div>
         </div>
       </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      {/* Contact */}
+      <div className={`${styles.content} ${styles.contact}`} id='contact'>
+        <div className={styles.title}>Contact</div>
+        <div className={styles.text}>お気軽にお問い合わせください。</div>
+        <Contact />
       </div>
     </main>
   );
 }
+
+export default Home;
