@@ -76,7 +76,7 @@ const Top: React.FC<Props> = ({searchParams}) => {
               Introducing some applications developed individually and some developed for projects.
             </span>
           )}
-          <Link href={'/development'} className={styles.toDetail}>
+          <Link href={`/development?lang=${lang}`} className={styles.toDetail}>
             {lang === 'ja' ? (
               <p>詳細を見る</p>
             ) : (

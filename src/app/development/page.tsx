@@ -74,9 +74,9 @@ const Development: React.FC<Props> = ({searchParams}) => {
                             <dt>{isJa ? 'サイト' : 'Site'}</dt>
                             <dd>
                                 {isJa ? (
-                                    <span>サイトは<a href="https://irorodot-s.com">こちら</a></span>
+                                    <span>サイトは<a href="https://irorodot-s.com" target="_blank">こちら</a></span>
                                 ) : (
-                                    <span>You can view the site <a href="https://irorodot-s.com">here</a>.</span>
+                                    <span>You can view the site <a href="https://irorodot-s.com" target="_blank">here</a>.</span>
                                 )}
                             </dd>
                         </dl>
