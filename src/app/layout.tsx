@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -19,8 +20,8 @@ export default function RootLayout({
     <html className={styles.html}>
       <body className={styles.body}>
         <div className={styles.wrapper}>
-          <Header />
-          <PageInfo />
+          <Suspense><Header /></Suspense>
+          <Suspense><PageInfo /></Suspense>
           {children}
           <Footer />
         </div>
