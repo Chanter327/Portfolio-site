@@ -4,7 +4,8 @@ const Footer: React.FC = () => {
     return (
         <footer className={styles.footer}>
             <div className={`${styles.content} ${styles.myName}`}>
-                小比類巻 友翔<br />
+                Kohiruimaki Yuto<br />
+                小比類巻 友翔
             </div>
             <div className={styles.content}>
                 E-mail: <a href="mailto:march09yuuto@gmail.com">march09yuuto@gmail.com</a>

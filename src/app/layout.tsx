@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={styles.html}>
+    <html className={styles.html}>
       <body className={styles.body}>
         <div className={styles.wrapper}>
           <Header />
