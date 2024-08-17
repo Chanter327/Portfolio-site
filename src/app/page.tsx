@@ -46,11 +46,11 @@ const Top: React.FC<Props> = ({searchParams}) => {
         <div className={styles.text}>
           {lang === 'ja' ? (
             <span>
-              サイト制作に携わったことをきっかけにITの技術に惹かれ、<br />
+              サイト制作に携わったことをきっかけにITの技術に惹かれ、<br className={styles.sp} />
               2023年から本格的にWeb開発の学習を始めました。<br />
               現在はアプリケーション開発やWeb開発をしています。<br />
-              ユーザーに親しまれやすく、UI, UXを重視したデザインを<br />
-              心がけるとともに、クライアントからの要望を正確に再現し、<br />
+              ユーザーに親しまれやすく、UI, UXを重視したデザインを<br className={styles.sp} />
+              心がけるとともに、クライアントからの要望を正確に再現し、<br className={styles.sp} />
               デザインからコーディング、公開まで全過程を丁寧に実現します。
             </span>
           ) : (
@@ -137,7 +137,7 @@ const Top: React.FC<Props> = ({searchParams}) => {
           </div>
           <div className={styles.skillDetail}>
             <div className={styles.title}>Tools</div>
-            <p>{lang === 'ja' ? 'その他' : 'Others'}</p>
+            <p>{lang === 'ja' ? '開発ツール' : 'Development Tools'}</p>
             <ul>
               <li>- git, GitHub</li>
               <li>- Docker</li>
