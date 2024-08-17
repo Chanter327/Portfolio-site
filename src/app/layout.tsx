@@ -9,7 +9,7 @@ import '../css/reset.scss';
 export const metadata: Metadata = {
   title: "Kohiruimaki Yuto Portfolio",
   description: "Development portfolio by Kohiruimaki Yuto",
-  viewport: "width=device-width,initial-scale=1.0,maximum-scale=1.0",
+  viewport: 'width=device-width,initial-scale=1.0,maximum-scale=1.0',
 };
 
 export default function RootLayout({
