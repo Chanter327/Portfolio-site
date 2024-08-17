@@ -36,7 +36,7 @@ const Development: React.FC<Props> = ({searchParams}) => {
                                 <dd>Frontend : HTML, Sass, JavaScript</dd>
                                 <dd>Backend : Ruby (Ruby on Rails)</dd>
                                 <dt>{isJa ? 'その他' : 'Others'}</dt>
-                                <dd>git, GitHub, render.com, Figma</dd>
+                                <dd>render.com</dd>
                                 <dt>{isJa ? 'デモ' : 'Demo'}</dt>
                                 <dd>not uploaded yet ...</dd>
                             </dl>
@@ -69,8 +69,6 @@ const Development: React.FC<Props> = ({searchParams}) => {
                             <dt>{isJa ? '開発言語' : 'Programming languages'}</dt>
                             <dd>Frontend : HTML, Sass, JavaScript</dd>
                             <dd>Backend : PHP</dd>
-                            <dt>{isJa ? 'その他' : 'Others'}</dt>
-                            <dd>git, GitHub</dd>
                             <dt>{isJa ? 'サイト' : 'Site'}</dt>
                             <dd>
                                 {isJa ? (
@@ -109,7 +107,7 @@ const Development: React.FC<Props> = ({searchParams}) => {
                             <dd>Frontend : TypeScript, Next.js</dd>
                             <dd>Backend : Next.js (Route Handlers)</dd>
                             <dt>{isJa ? 'その他' : 'Others'}</dt>
-                            <dd>git, GitHub, Vercel</dd>
+                            <dd>Vercel</dd>
                         </dl>
                 </div>
             </div>
