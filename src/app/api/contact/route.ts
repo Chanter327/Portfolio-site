@@ -34,21 +34,16 @@ export async function POST(req: NextRequest) {
             text: `名前: ${data.name}\nメールアドレス: ${data.email}\nメッセージ:\n${data.message}`
         });
 
-        if (data.isJa) {
-            await transporter.sendMail({
-                from: process.env.GMAIL,
-                to: data.email,
-                subject: 'お問合せを送信しました',
-                text: `${data.name}様\n\n以下の内容でお問合せを送信しました。\n\n\n名前: ${data.name}\nメールアドレス: ${data.email}\nメッセージ:\n${data.message}`
-            });
-        } else {
-            await transporter.sendMail({
-                from: process.env.GMAIL,
-                to: data.email,
-                subject: 'Your Message Has Been Sent Successfully.',
-                text: `Dear ${data.name}\n\nYour inquiry has been sent with the following details:\n\n\nname: ${data.name}\ne-mail: ${data.email}\nmessage:\n${data.message}`
-            });
-        }
+        await transporter.sendMail({
+            from: process.env.GMAIL,
+            to: data.email,
+            subject: data.isJa ? 'お問合せを送信しました' : 'Your Message Has Been Sent Successfully.',
+            text: data.isJa ? (
+                `${data.name}様\n\n以下の内容でお問合せを送信しました。\n\n\n名前: ${data.name}\nメールアドレス: ${data.email}\nメッセージ:\n${data.message}`
+            ) : (
+                `Dear ${data.name}\n\nYour inquiry has been sent with the following details:\n\n\nname: ${data.name}\ne-mail: ${data.email}\nmessage:\n${data.message}`
+            )
+        });
 
         return NextResponse.json(
             { status: 'success', message: 'sent a message successfully.' },
