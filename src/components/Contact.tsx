@@ -2,14 +2,14 @@
 import { FormEvent, useState } from "react";
 import styles from '../css/page.module.scss';
 
-type FormData = {
+interface FormData {
     name: string;
     email: string;
     message: string;
     isJa: boolean;
 }
 
-type ContactRes = {
+interface ContactRes {
     success: boolean;
     message: string;
 }
