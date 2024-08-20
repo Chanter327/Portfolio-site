@@ -135,9 +135,11 @@ const ArticlePage: React.FC<Props> = ({ searchParams }) => {
                             ) : (
                                 <div className={styles.topImage}><div className={styles.noImage}>- No Image -</div></div>
                             )}
-                            <Link href={imageUrls[selectedImage]} className={styles.viewImage}>
-                            <ZoomInIcon sx={{fontSize: 20}} />{isJa ? ('画像を拡大表示') : ('view the enlarged image')}
-                            </Link>
+                            {imageUrls.length > 0 && (
+                                <Link href={imageUrls[selectedImage]} className={styles.viewImage}>
+                                    <ZoomInIcon sx={{fontSize: 20}} />{isJa ? ('画像を拡大表示') : ('view the enlarged image')}
+                                </Link>
+                            )}
                             <div className={styles.imageList}>
                                 {imageUrls.length > 1 && imageUrls.map((url, index) => (
                                     <div className={styles.imageContainer} onClick={() => handleTopImage(index)}><Image src={url} alt={`Image ${index + 1}`} layout='fill' /></div>
