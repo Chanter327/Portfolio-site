@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
-type FormData = {
+interface FormData {
     name: string;
     email: string;
     message: string;

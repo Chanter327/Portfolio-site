@@ -1,4 +1,85 @@
-.info {
-    text-align: center;
-    font-size: 3rem;
+.desc {
+    margin-top: 20px;
+    font-size: 1.6rem;
+}
+
+.blogContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    justify-content: space-around;
+    gap: 15px;
+    margin-top: 40px;
+    .article {
+        max-width: 600px;
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        font-size: 2rem;
+        .imageContainer {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3 / 2;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: #333;
+            border-radius: 10px;
+            img {
+                position: absolute;
+                width: 100% !important;
+                height: auto !important;
+                transition: transform 0.5s;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+            }
+            .noImage {
+                transition: transform 0.5s;
+            }
+        }
+        .title {
+            font-size: 2.6rem;
+            font-weight: 400;
+        }
+        .text {
+            font-size: 1.4rem;
+            overflow-y: hidden;
+            height: 4.2rem;
+        }
+        .typeContainer {
+            display: flex;
+            .type {
+                width: fit-content;
+                min-width: fit-content;
+                padding: 0 5px;
+                border-radius: 5px;
+                font-size: 1.4rem;
+                background-color: #555;
+                margin: 5px 0;
+                &.life {
+                    background-color: #019963;
+                }
+                &.dev {
+                    background-color: #007aff;
+                }
+                &:not(:nth-of-type(1)) {
+                    margin-left: 10px;
+                }
+            }
+        }
+        @media (hover: hover) {
+            &:hover {
+                .imageContainer > * {
+                    transform: scale(1.2);
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 400px) {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
 }
