@@ -13,7 +13,6 @@
     .articleTexts {
         order: 0;
         flex: 1;
-        padding-right: 20px;
         .typeContainer {
             display: flex;
             font-size: 1.6rem;
@@ -37,7 +36,6 @@
         }
         .title {
             font-size: 4rem;
-            border-bottom: 1px solid #999;
         }
         .text {
             font-size: 1.6rem;

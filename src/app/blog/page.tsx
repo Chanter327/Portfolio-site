@@ -119,7 +119,7 @@ const Blog: React.FC<Props> = ({ searchParams }) => {
             )}
             <div className={styles.blogContainer}>
                 {articles.items.map((value) => (
-                <Link href={`/blog/${value.sys.id}?lang=${lang}`} className={styles.article} key={value.sys.id}>
+                <Link href={`/blog/${value.sys.id}?lang=${lang}`} scroll className={styles.article} key={value.sys.id}>
                     <div className={styles.date}>{formatDate(value.fields.blogDate)}</div>
                     {value.fields.images ? (
                     <div className={styles.imageContainer}>
