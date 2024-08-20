@@ -1,0 +1,175 @@
+.loading {
+    text-align: center;
+    font-size: 3rem;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    @media screen and (max-width: 800px) {
+        display: block;
+    }
+    .articleTexts {
+        order: 0;
+        flex: 1;
+        padding-right: 20px;
+        .typeContainer {
+            display: flex;
+            font-size: 1.6rem;
+            .type {
+                padding: 0 10px;
+                background-color: #555;
+                border-radius: 5px;
+                &.life {
+                    background-color: #019963;
+                }
+                &.dev {
+                    background-color: #007aff;
+                }
+                &:not(:nth-of-type(1)) {
+                    margin-left: 10px;
+                }
+            }
+        }
+        .date {
+            font-size: 3rem;
+        }
+        .title {
+            font-size: 4rem;
+            border-bottom: 1px solid #999;
+        }
+        .text {
+            font-size: 1.6rem;
+            margin-top: 10px;
+        }
+        @media screen and (max-width: 700px) {
+            margin-top: 20px;
+            padding-right: 0;
+        }
+        @media screen and (max-width: 500px) {
+            .date {
+                font-size: 2.4rem;
+            }
+            .title {
+                font-size: 3.2rem;
+            }
+        }
+    }
+    .images {
+        order: 1;
+        flex: 1;
+        .topImage {
+            position: relative;
+            aspect-ratio: 3 / 2;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            background-color: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                width: auto !important;
+                height: 100% !important;
+            }
+            .noImage {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: #333;
+                display: grid;
+                align-items: center;
+                justify-content: center;
+                border-radius: 10px;
+            }
+        }
+        .viewImage {
+            display: block;
+            display: flex;
+            align-items: center;
+            width: fit-content;
+            color: inherit;
+            text-align: right;
+            margin-top: 5px;
+            margin-left: auto;
+            font-size: 1.4rem;
+        }
+        .imageList {
+            margin-top: 10px;
+            display: flex;
+            overflow-x: scroll;
+            // スクロールバー非表示
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            &::-webkit-scrollbar{
+                display: none;
+            }
+            .imageContainer {
+                position: relative;
+                width: 100px;
+                min-width: 80px;
+                aspect-ratio: 3 / 2;
+                display: grid;
+                align-items: center;
+                overflow: hidden;
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: auto;
+                    margin: auto;
+                }
+                &:not(:nth-of-type(1)) {
+                    margin-left: 10px;
+                }
+                @media screen and (max-width: 600px) {
+                    width: 80px;
+                }
+            }
+        }
+    }
+}
+
+.back {
+    position: relative;
+    margin: auto;
+    margin-top: 60px;
+    width: 12rem;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    p {
+        padding-left: 5px;
+        font-size: 1.6rem;
+    }
+    .backArrow {
+        position: absolute;
+        width: 12rem;
+        height: 1.2rem;
+        top: 15px;
+        padding-right: 5rem;
+        border-right: 1px solid white;
+        border-bottom: 1px solid white;
+        transform: skew(45deg);
+        transform-origin: left;
+        transition: 0.3s;
+    }
+    @media (hover: hover) {
+        &:hover {
+            .backArrow {
+                width: 16rem;
+            }
+        }
+    }
+}
