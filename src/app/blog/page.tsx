@@ -65,9 +65,9 @@ const Blog: React.FC<Props> = ({ searchParams }) => {
         try {
             const response = await fetch(
                 isJa ? (
-                    `https://cdn.contentful.com/spaces/${SPACE_ID}/entries?access_token=${ACCESS_TOKEN}&locale=ja-JP&order=-sys.createdAt`
+                    `https://cdn.contentful.com/spaces/${SPACE_ID}/entries?access_token=${ACCESS_TOKEN}&locale=ja-JP&content_type=portfolioBlog&order=-fields.blogDate,-sys.createdAt`
                 ) : (
-                    `https://cdn.contentful.com/spaces/${SPACE_ID}/entries?access_token=${ACCESS_TOKEN}&locale=en-US&order=-sys.createdAt`
+                    `https://cdn.contentful.com/spaces/${SPACE_ID}/entries?access_token=${ACCESS_TOKEN}&locale=en-US&content_type=portfolioBlog&order=-fields.blogDate,-sys.createdAt`
                 )
             );
             if (!response.ok) {

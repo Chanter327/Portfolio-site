@@ -166,7 +166,7 @@ const ArticlePage: React.FC<Props> = ({ searchParams }) => {
                             </div>
                         </div>
                     </div>
-                    <Link href={`/blog?lang=${lang}`} className={styles.back}>
+                    <Link href={`/blog?lang=${lang}`} className={styles.back} scroll>
                         {isJa ? (
                         <p>戻る</p>
                         ) : (
