@@ -46,8 +46,7 @@ const Top: React.FC<Props> = ({searchParams}) => {
         <div className={styles.text}>
           {lang === 'ja' ? (
             <span>
-              サイト制作に携わったことをきっかけにITの技術に惹かれ、<br className={styles.sp} />
-              2023年から本格的にWeb開発の学習を始めました。<br />
+              サイト制作に携わったことをきっかけにITの技術に惹かれ、Web開発の学習を始めました。<br />
               現在はアプリケーション開発やWeb開発をしています。<br />
               ユーザーに親しまれやすく、UI, UXを重視したデザインを<br className={styles.sp} />
               心がけるとともに、クライアントからの要望を正確に再現し、<br className={styles.sp} />
@@ -56,7 +55,7 @@ const Top: React.FC<Props> = ({searchParams}) => {
           ) : (
             <span>
               My interest in IT technology was sparked by my involvement in website creation, <br />
-              and I began studying web development in 2023. Currently, I am engaged in application and web development. <br />
+              and I began studying web development. Currently, I am engaged in application and web development. <br />
               I strive to create designs that are user-friendly and focus on UI and UX, while accurately reflecting client requests. I meticulously handle the entire process from design to coding and publication.
             </span>
           )}
