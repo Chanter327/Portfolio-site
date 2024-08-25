@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const MenuCircle: React.FC<{link: string, text: string, isNavi: boolean}> = ({link, text, isNavi=true}) => {
     const searchParams = useSearchParams();
-    const lang = searchParams.get('lang');
+    const lang: string = searchParams.get('lang') || 'ja';
 
     const [clicked, setClicked] = useState<boolean>(false);
     const handleClick = () => {
