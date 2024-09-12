@@ -10,6 +10,7 @@ interface Props {
 
 const Top: React.FC<Props> = ({searchParams}) => {
   const lang: string = searchParams.lang || 'ja';
+  const isJa = lang === 'ja';
 
   return (
     <main className={styles.main}>
@@ -19,10 +20,10 @@ const Top: React.FC<Props> = ({searchParams}) => {
         <div className={styles.ballContainer}><div className={styles.ball}></div></div>
       </div>
       <div className={styles.subTheme}>
-        {lang === 'ja' ? '- 過程に価値を -' : '- Find values in every phase -'}
+        {isJa ? '- 過程に価値を -' : '- Find values in every phase -'}
       </div>
       <div className={styles.themeDesc}>
-        {lang === 'ja' ? (
+        {isJa ? (
             <span>
               成果や結果だけに限らず、プロジェクトや学習など全ての過程に<br />
               価値を見出すことで更なる成長につなげることを重要視して活動しています。
@@ -44,19 +45,21 @@ const Top: React.FC<Props> = ({searchParams}) => {
       <div className={`${styles.content} ${styles.about}`}>
         <div className={styles.title}>About me</div>
         <div className={styles.text}>
-          {lang === 'ja' ? (
+          {isJa ? (
             <span>
               サイト制作に携わったことをきっかけにITの技術に惹かれ、Web開発の学習を始めました。<br />
               現在はアプリケーション開発やWeb開発をしています。<br />
               ユーザーに親しまれやすく、UI, UXを重視したデザインを<br className={styles.sp} />
               心がけるとともに、クライアントからの要望を正確に再現し、<br className={styles.sp} />
-              デザインからコーディング、公開まで全過程を丁寧に実現します。
+              デザインからコーディング、公開まで全過程を丁寧に実現します。<br /><br />
+              好きな言語: TypeScript, Go
             </span>
           ) : (
             <span>
               My interest in IT technology was sparked by my involvement in website creation, <br />
               and I began studying web development. Currently, I am engaged in application and web development. <br />
-              I strive to create designs that are user-friendly and focus on UI and UX, while accurately reflecting client requests. I meticulously handle the entire process from design to coding and publication.
+              I strive to create designs that are user-friendly and focus on UI and UX, while accurately reflecting client requests. I meticulously handle the entire process from design to coding and publication.<br /><br />
+              My favorite: TypeScript, Go
             </span>
           )}
         </div>
@@ -66,7 +69,7 @@ const Top: React.FC<Props> = ({searchParams}) => {
       <div className={`${styles.content} ${styles.dev}`}>
         <div className={styles.title}>Development</div>
         <div className={styles.text}>
-          {lang === 'ja' ? (
+          {isJa ? (
             <span>
               プロジェクトや個人で開発したアプリケーションなどを 一部紹介します。
             </span>
@@ -76,7 +79,7 @@ const Top: React.FC<Props> = ({searchParams}) => {
             </span>
           )}
           <Link href={`/development?lang=${lang}`} className={styles.toDetail}>
-            {lang === 'ja' ? (
+            {isJa? (
               <p>詳細を見る</p>
             ) : (
               <p>view details</p>
@@ -95,7 +98,7 @@ const Top: React.FC<Props> = ({searchParams}) => {
       <div className={`${styles.content} ${styles.skills}`} id='skills'>
         <div className={styles.title}>Skills</div>
         <div className={styles.text}>
-          {lang === 'ja' ? (
+          {isJa ? (
             <span>経験のある開発言語やツールを紹介します。</span>
           ) : (
             <span>Introducing the programming languages and tools I have experience with.</span>
@@ -104,14 +107,14 @@ const Top: React.FC<Props> = ({searchParams}) => {
         <div className={styles.skills}>
           <div className={styles.skillDetail}>
             <div className={styles.title}>Frontend</div>
-            <p>{lang === 'ja' ? '言語' : 'Programming languages'}</p>
+            <p>{isJa ? '言語' : 'Programming languages'}</p>
             <ul>
               <li>- HTML</li>
               <li>- CSS, Sass</li>
               <li>- JavaScript</li>
               <li>- TypeScript</li>
             </ul>
-            <p>{lang === 'ja' ? 'フレームワークなど' : 'Frameworks'}</p>
+            <p>{isJa ? 'フレームワークなど' : 'Frameworks'}</p>
             <ul>
               <li>- React</li>
               <li>- Next.js</li>
@@ -121,13 +124,13 @@ const Top: React.FC<Props> = ({searchParams}) => {
           </div>
           <div className={styles.skillDetail}>
             <div className={styles.title}>Backend</div>
-            <p>{lang === 'ja' ? '言語' : 'Programming languages'}</p>
+            <p>{isJa ? '言語' : 'Programming languages'}</p>
             <ul>
               <li>- Ruby</li>
               <li>- Python</li>
               <li>- Go</li>
             </ul>
-            <p>{lang === 'ja' ? 'フレームワークなど' : 'Frameworks'}</p>
+            <p>{isJa ? 'フレームワークなど' : 'Frameworks'}</p>
             <ul>
               <li>- Ruby on Rails</li>
               <li>- Flask</li>
@@ -136,13 +139,13 @@ const Top: React.FC<Props> = ({searchParams}) => {
           </div>
           <div className={styles.skillDetail}>
             <div className={styles.title}>Tools</div>
-            <p>{lang === 'ja' ? '開発ツール' : 'Development Tools'}</p>
+            <p>{isJa ? '開発ツール' : 'Development Tools'}</p>
             <ul>
               <li>- git, GitHub</li>
               <li>- Docker</li>
               <li>- Figma</li>
             </ul>
-            <p>{lang === 'ja' ? 'デプロイ' : 'Deployment'}</p>
+            <p>{isJa ? 'デプロイ' : 'Deployment'}</p>
             <ul>
               <li>- Render</li>
               <li>- Netlify</li>
@@ -155,7 +158,7 @@ const Top: React.FC<Props> = ({searchParams}) => {
       {/* Contact */}
       <div className={`${styles.content} ${styles.contact}`} id='contact'>
         <div className={styles.title}>Contact</div>
-        <div className={styles.text}>{lang === 'ja' ? 'お気軽にお問い合わせください。' : 'Please feel free to contact me.'}</div>
+        <div className={styles.text}>{isJa ? 'お気軽にお問い合わせください。' : 'Please feel free to contact me.'}</div>
         <Contact lang={lang} />
       </div>
     </main>
