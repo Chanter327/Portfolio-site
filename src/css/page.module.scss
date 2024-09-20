@@ -399,6 +399,7 @@
             border: 1px solid white;
             border-radius: 10px;
             height: 200px;
+            resize: none;
         }
         .submit {
             position: relative;
@@ -409,7 +410,7 @@
             border-radius: 5px;
             color: white;
             font-size: 1.6rem;
-            width: 12rem;
+            width: 100%;
             margin: auto;
             margin-top: 40px;
             padding: 5px;
