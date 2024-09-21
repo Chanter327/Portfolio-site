@@ -1,8 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import styles from '../../css/blog.module.scss';
+import styles from '@/css/blog.module.scss';
 
 interface Props {
   searchParams: { lang?: string };
@@ -123,7 +122,7 @@ const Blog: React.FC<Props> = ({ searchParams }) => {
                     <div className={styles.date}>{formatDate(value.fields.blogDate)}</div>
                     {value.fields.images ? (
                     <div className={styles.imageContainer}>
-                        <Image src={getImageUrl(value.fields.images[0].sys.id)} alt={`${value.fields.title}-image`} layout='fill' />
+                        <img src={getImageUrl(value.fields.images[0].sys.id)} alt={`${value.fields.title}-image`} />
                     </div>
                     ) : (
                     <div className={styles.imageContainer}><div className={styles.noImage}>- No Image -</div></div>

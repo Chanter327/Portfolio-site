@@ -1,6 +1,6 @@
 'use client';
 import { FormEvent, useState } from "react";
-import styles from '../css/page.module.scss';
+import styles from '@/css/page.module.scss';
 
 interface FormData {
     name: string;

@@ -4,7 +4,7 @@ import { useParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
-import styles from '../../../css/article.module.scss';
+import styles from '@/css/article.module.scss';
 
 interface Props {
     searchParams: {lang?: string};
@@ -131,7 +131,7 @@ const ArticlePage: React.FC<Props> = ({ searchParams }) => {
                     <div className={styles.container}>
                         <div className={styles.images}>
                             {imageUrls.length > 0 ? (
-                                <div className={styles.topImage}><Link href={imageUrls[selectedImage]}><Image src={imageUrls[selectedImage]} alt={article.fields.title} layout='fill' sizes='' /></Link></div>
+                                <div className={styles.topImage}><Link href={imageUrls[selectedImage]}><img src={imageUrls[selectedImage]} alt={article.fields.title} /></Link></div>
                             ) : (
                                 <div className={styles.topImage}><div className={styles.noImage}>- No Image -</div></div>
                             )}

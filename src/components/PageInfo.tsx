@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
-import styles from '../css/layout.module.scss';
+import styles from '@/css/layout.module.scss';
 
 const PageInfo: React.FC = () => {
     const url: string = usePathname();

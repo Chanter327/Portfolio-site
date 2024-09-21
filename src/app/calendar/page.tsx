@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Register from '@/components/Register';
 import Event from '@/components/Event';
-import { wdays, supabase, generateCalendar, getCalendarData } from '../features/calendar';
+import { wdays, supabase, generateCalendar, getCalendarData } from '@/features/calendar';
 import styles from '@/css/calendar.module.scss';
 
 interface RegisterData {

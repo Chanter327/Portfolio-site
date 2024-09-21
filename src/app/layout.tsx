@@ -1,10 +1,10 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import PageInfo from "../components/PageInfo";
-import styles from '../css/layout.module.scss';
-import '../css/reset.scss';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import PageInfo from "@/components/PageInfo";
+import styles from '@/css/layout.module.scss';
+import '@/css/reset.scss';
 
 export const metadata: Metadata = {
   title: "Kohiruimaki Yuto Portfolio",

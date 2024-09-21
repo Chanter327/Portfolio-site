@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { updateData, deleteData, yearArray, monthArray, dayArray, hourArray, minutesArray } from '@/app/features/calendar';
+import { updateData, deleteData, yearArray, monthArray, dayArray, hourArray, minutesArray } from '@/features/calendar';
 import styles from '@/css/popup.module.scss';
 
 interface EventData {
