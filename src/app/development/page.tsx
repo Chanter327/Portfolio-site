@@ -1,5 +1,9 @@
 import Image from 'next/image';
 import styles from '@/css/development.module.scss';
+// image
+import nabe2 from '@/img/nabe2-management.png';
+import iroro from '@/img/irorodot-s.png';
+import portfolio from '@/img/portfolio.png';
 
 interface Props {
     searchParams: {lang?: string};
@@ -12,7 +16,7 @@ const Development: React.FC<Props> = ({searchParams}) => {
     return (
         <>
             <div className={styles.container}>
-                <div className={styles.image}><Image src={'/nabe2-management.png'} alt='NABE2 management' width={500} height={350} unoptimized /></div>
+                <div className={styles.image}><Image src={nabe2} alt='NABE2 management'/></div>
                 <div className={styles.desc}>
                     <div className={styles.title}>{isJa ? '勤怠・スケジュール管理アプリ' : 'Time and Schedule Management App'}</div>
                     <div className={styles.text}>
@@ -45,7 +49,7 @@ const Development: React.FC<Props> = ({searchParams}) => {
             </div>
 
             <div className={styles.container}>
-            <div className={styles.image}><Image src={'/irorodot-s.png'} alt='iroro.s' width={500} height={350} /></div>
+            <div className={styles.image}><Image src={iroro} alt='iroro.s' /></div>
             <div className={styles.desc}>
                 <div className={styles.title}>{isJa ? 'Iroro.s ウェブサイト' : 'Iroro.s website'}</div>
                 <div className={styles.text}>
@@ -83,7 +87,7 @@ const Development: React.FC<Props> = ({searchParams}) => {
         </div>
 
         <div className={styles.container}>
-            <div className={styles.image}><Image src={'/portfolio.png'} alt='portfolio' width={500} height={350} /></div>
+            <div className={styles.image}><Image src={portfolio} alt='portfolio' width={500} height={350} /></div>
             <div className={styles.desc}>
                 <div className={styles.title}>{isJa ? 'ポートフォリオサイト' : 'Portfolio site'}</div>
                 <div className={styles.text}>
