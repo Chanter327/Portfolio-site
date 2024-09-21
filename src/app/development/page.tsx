@@ -87,7 +87,7 @@ const Development: React.FC<Props> = ({searchParams}) => {
         </div>
 
         <div className={styles.container}>
-            <div className={styles.image}><Image src={portfolio} alt='portfolio' width={500} height={350} /></div>
+            <div className={styles.image}><Image src={portfolio} alt='portfolio' /></div>
             <div className={styles.desc}>
                 <div className={styles.title}>{isJa ? 'ポートフォリオサイト' : 'Portfolio site'}</div>
                 <div className={styles.text}>
