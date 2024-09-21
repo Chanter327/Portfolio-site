@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import styles from '../css/layout.module.scss';
+import styles from '@/css/layout.module.scss';
 
 const LangSwitch: React.FC<{ params: { lang: string } }> = ({ params }) => {
   const [lang, setLang] = useState<string>(params.lang);

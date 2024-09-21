@@ -1,8 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import MenuCircle from '../components/MenuCircle';
-import Contact from '../components/Contact';
-import styles from '../css/page.module.scss';
+import MenuCircle from '@/components/MenuCircle';
+import Contact from '@/components/Contact';
+import styles from '@/css/page.module.scss';
+// image
+import nabe2 from '@/img/nabe2-management.png';
+import iroro from '@/img/irorodot-s.png';
+import portfolio from '@/img/portfolio.png';
 
 interface Props {
   searchParams: {lang?: string};
@@ -88,9 +92,9 @@ const Top: React.FC<Props> = ({searchParams}) => {
           </Link>
         </div>
         <div className={styles.showCase}>
-          <div className={styles.sample}><Image src={'/nabe2-management.png'} alt='NABE2 management' width={500} height={350} /></div>
-          <div className={styles.sample}><Image src={'/irorodot-s.png'} alt='iroro.s' width={500} height={350} /></div>
-          <div className={styles.sample}><Image src={'/portfolio.png'} alt='portfolio' width={500} height={350} /></div>
+          <div className={styles.sample}><Image src={nabe2} alt='NABE2 management'/></div>
+          <div className={styles.sample}><Image src={iroro} alt='iroro.s'/></div>
+          <div className={styles.sample}><Image src={portfolio} alt='portfolio'/></div>
         </div>
       </div>
 

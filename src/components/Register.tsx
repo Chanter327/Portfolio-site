@@ -1,4 +1,4 @@
-import { insertData, yearArray, monthArray, dayArray, hourArray, minutesArray } from '@/app/features/calendar';
+import { insertData, yearArray, monthArray, dayArray, hourArray, minutesArray } from '@/features/calendar';
 import styles from '@/css/popup.module.scss';
 import { useEffect, useState } from 'react';
 

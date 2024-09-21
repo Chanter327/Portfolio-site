@@ -2,8 +2,8 @@
 import { useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import styles from '../css/layout.module.scss';
-import LangSwitch from './LangSwitch';
+import styles from '@/css/layout.module.scss';
+import LangSwitch from '@/components//LangSwitch';
 
 const Header: React.FC = () => {
     const params = useSearchParams();
