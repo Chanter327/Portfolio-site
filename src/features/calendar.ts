@@ -29,8 +29,23 @@ export const yearArray: number[] = [
 export const monthArray: number[] = Array.from({ length: 12 }, (_, i) => i + 1);
 export const dayArray: number[] = Array.from({ length: 31 }, (_, i) => i + 1);
 
-export const hourArray: number[] = Array.from({ length: 23 }, (_, i) => i + 1);
+export const hourArray: number[] = Array.from({ length: 24 }, (_, i) => i + 0);
 export const minutesArray: number[] = Array.from({ length: 12 }, (_, i) => i * 5 + 0);
+
+export const timeValidation = (startH: number | null, startM: number | null, endH: number | null, endM: number | null): boolean => {
+    if (startH == null || startM == null || endH == null || endM == null) {
+        return false;
+    } else if (startH === endH) {
+        if (startM > endM) {
+            return false
+        } 
+    } else if (startH !== endH) {
+        if (startH > endH) {
+            return false;
+        }
+    }
+    return true;
+}
 
 // カレンダーを作成
 export const wdays: string[] = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -93,6 +108,19 @@ export const supabase = createClient(dbUrl, dbKey);
 export const getCalendarData = async (): Promise<Event[]> => {
     const { data, error } = await supabase.from('calendar').select('*');
     
+    if (error) throw error;
+    return data as Event[];
+}
+
+// supabase fetch only selected date
+export const getSelectedDateEvents = async (year: number, month: number, day: number): Promise<Event[]> => {
+    const { data, error } = await supabase
+        .from('calendar')
+        .select('*')
+        .eq('year', year)
+        .eq('month', month)
+        .eq('day', day);
+
     if (error) throw error;
     return data as Event[];
 }
