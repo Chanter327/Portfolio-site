@@ -101,9 +101,9 @@ const Calendar: React.FC = () => {
 
     return (
         <>
-            {isRegisterActive && register !== null && (
-                <Register handleRegister={handleRegister} year={register.year} month={register.month} day={register.day} wday={register.wday} />
-            )}
+            {isRegisterActive && register !== null &&
+                <Register handleRegister={handleRegister} isActive year={register!.year} month={register!.month} day={register!.day} wday={register!.wday} />
+            }
             <div className={styles.calendar}>
                 <div className={styles.today} onClick={backToThisMonth}>{`${currentYear} / ${currentMonth} / ${today.getDate()} (${wdays[today.getDay()]})`}</div>
                 <div className={styles.calendarInfo}>

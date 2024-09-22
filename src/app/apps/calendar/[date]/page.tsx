@@ -90,29 +90,12 @@ const SelectedDate: React.FC = () => {
         setEvent(eventData);
     };
 
-    {isEventActive && event !== null && (
-        <Event 
-            handleEvent={handleEventClick} 
-            id={event.id}
-            year={event.year}
-            month={event.month}
-            day={event.day}
-            wday={event.wday}
-            starttimeH={event.starttimeH}
-            starttimeM={event.starttimeM}
-            endtimeH={event.endtimeH}
-            endtimeM={event.endtimeM}
-            isWholeDay={event.isWholeDay}
-            title={event.title}
-            description={event.description}
-        />
-    )}
-
     return (
         <>
-        {isRegisterActive && register !== null && (
-            <Register handleRegister={handleRegister} year={register.year} month={register.month} day={register.day} wday={register.wday} />
-        )}
+        {isRegisterActive && register !== null &&
+            <Register handleRegister={handleRegister} isActive year={register.year} month={register.month} day={register.day} wday={register.wday} />
+        }
+
         {isEventActive && event !== null && (
             <Event 
                 handleEvent={handleEventClick} 

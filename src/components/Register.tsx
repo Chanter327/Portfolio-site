@@ -1,9 +1,11 @@
+'use client';
 import { insertData, yearArray, monthArray, dayArray, hourArray, minutesArray, timeValidation } from '@/features/calendar';
 import styles from '@/css/calendar.module.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface RegisterProps {
     handleRegister: (isActive: boolean, year: number, month: number, day: number, wday: string) => void;
+    isActive: boolean;
     year: number;
     month: number;
     day: number;
@@ -22,6 +24,7 @@ interface EventForm {
     isWholeDay: boolean;
     title: string;
     description: string | null;
+    isActive: boolean;
 }
 
 const Register: React.FC<RegisterProps> = (props) => {
@@ -47,6 +50,7 @@ const Register: React.FC<RegisterProps> = (props) => {
         isWholeDay: false,
         title: '',
         description: null,
+        isActive: false
     });
 
     const handleEventForm = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -56,6 +60,21 @@ const Register: React.FC<RegisterProps> = (props) => {
             [name]: value
         }));
     };
+
+        // 曜日を計算する関数
+        const calculateWeekday = (year: number, month: number, day: number) => {
+            const date = new Date(year, month - 1, day);
+            const wdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            return wdays[date.getDay()];
+        };
+
+        useEffect(() => {
+            const newWday = calculateWeekday(registerForm.year, registerForm.month, registerForm.day);
+            setRegisterForm(prev => ({
+                ...prev,
+                wday: newWday
+            }));
+        }, [registerForm.year, registerForm.month, registerForm.day]);
 
     const [isWholeDay, setIsWholeDay] = useState<boolean>(registerForm.isWholeDay);
     const handleIsWholeDay = () => {
@@ -97,13 +116,14 @@ const Register: React.FC<RegisterProps> = (props) => {
             isWholeDay: false,
             title: '',
             description: null,
+            isActive: false
         });
         closeRegister();
     }
 
     return (
       <div className={styles.overlay} onClick={handleOverlayClick}>
-        <div className={styles.container} onClick={handleContainerClick}>
+        <div className={`${styles.container} ${registerForm.isActive && styles.active}`} onClick={handleContainerClick}>
         <div className={styles.btn} onClick={closeRegister}>閉じる</div>
         <div className={styles.wrapper}>
             <div className={styles.title}>イベント追加</div>
@@ -133,6 +153,7 @@ const Register: React.FC<RegisterProps> = (props) => {
                                     ))}
                                 </select>
                             </div>
+                            <div className={styles.wday}>({calculateWeekday(registerForm.year, registerForm.month, registerForm.day)})</div>
                         </li>
                         {!isWholeDay &&
                             <>
