@@ -127,9 +127,14 @@ const SelectedDate: React.FC = () => {
                             handleEventClick(true, e)}}
                     >
                         <div>{e.title}</div>
-                        <div>
-                            {e.starttimeH! < 10 ? `0${e.starttimeH}` : e.starttimeH}:{e.starttimeM! < 10 ? `0${e.starttimeM}` : e.starttimeM} - {e.starttimeH! < 10 ? `0${e.endtimeH}` : e.endtimeH}:{e.endtimeM! < 10 ? `0${e.endtimeM}` : e.endtimeM}
-                        </div>
+                        {e.starttimeH && e.starttimeM && e.endtimeH && e.endtimeM ? (
+                            <div>
+                                {e.starttimeH! < 10 ? `0${e.starttimeH}` : e.starttimeH}:{e.starttimeM! < 10 ? `0${e.starttimeM}` : e.starttimeM} - {e.starttimeH! < 10 ? `0${e.endtimeH}` : e.endtimeH}:{e.endtimeM! < 10 ? `0${e.endtimeM}` : e.endtimeM}
+                            </div>
+                        ) : (
+                            <div>終日</div>
+                        )
+                        }
                     </div>
                 ))}
                 </div>
