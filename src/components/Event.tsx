@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { updateData, deleteData, yearArray, monthArray, dayArray, hourArray, minutesArray } from '@/features/calendar';
-import styles from '@/css/popup.module.scss';
+import { updateData, deleteData, yearArray, monthArray, dayArray, hourArray, minutesArray, timeValidation } from '@/features/calendar';
+import styles from '@/css/calendar.module.scss';
 
 interface EventData {
     id: number;
@@ -56,13 +56,22 @@ const Event: React.FC<EventProps> = (props) => {
         }));
     }
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const [submitError, setSubmitError] = useState<boolean>(false);
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>, year: number, month: number, day: number, wday: string, starttimeH: number | null, starttimeM: number | null, endtimeH: number | null, endtimeM: number | null, isWholeDay: boolean, title: string, description: string | null) => {
         e.preventDefault();
+        if (title === '') {
+            setSubmitError(true);
+            return;
+        }else if (!isWholeDay && !timeValidation(starttimeH, starttimeM, endtimeH, endtimeM)) {
+            setSubmitError(true);
+            return;
+        } else {
+            setSubmitError(false);
+        }
         await updateData(eventForm.id, eventForm.year, eventForm.month, eventForm.day, eventForm.wday, eventForm.starttimeH, eventForm.starttimeM, eventForm.endtimeH, eventForm.endtimeM, eventForm.isWholeDay, eventForm.title, eventForm.description);
         setEventForm({...props});
         closeEvent();
     }
-
     const handleDelete = (id: number) => {
         deleteData(id);
         closeEvent();
@@ -83,7 +92,12 @@ const Event: React.FC<EventProps> = (props) => {
                 <div className={styles.wrapper}>
                     <div className={styles.title}>イベント</div>
                     <div className={styles.title}>{eventForm.year} / {eventForm.month} / {eventForm.day} ({eventForm.wday})</div>
-                    <form onSubmit={handleSubmit}>
+                    {submitError &&
+                        <div className={styles.errorNotice}>
+                            入力内容を確認してください。時間、タイトルは空欄にできません。
+                        </div>
+                    }
+                    <form onSubmit={(e) => handleSubmit(e, eventForm.year, eventForm.month, eventForm.day, eventForm.wday, eventForm.starttimeH, eventForm.starttimeM, eventForm.endtimeH, eventForm.endtimeM, eventForm.isWholeDay, eventForm.title, eventForm.description)}>
                         <ul className={styles.formContent}>
                             <li>
                                 <div>日付: </div>
