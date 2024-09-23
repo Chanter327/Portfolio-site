@@ -3,6 +3,10 @@
     font-size: 1.6rem;
 }
 
+.loading {
+    font-size: 2.4rem;
+}
+
 .blogContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -15,6 +19,7 @@
         text-decoration: none;
         color: inherit;
         font-size: 2rem;
+        border-bottom: 0.5px solid #ccc;
         .imageContainer {
             position: relative;
             width: 100%;
