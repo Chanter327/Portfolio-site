@@ -5,6 +5,7 @@ import Link from "next/link";
 import { supabase, getSelectedDateEvents ,wdays } from "@/features/calendar";
 import Register from "@/components/Register";
 import Event from "@/components/Event";
+import AddIcon from '@mui/icons-material/Add';
 import styles from '@/css/calendar.module.scss';
 
 interface RegisterData {
@@ -113,9 +114,12 @@ const SelectedDate: React.FC = () => {
                 description={event.description}
             />
         )}
-        <Link href={'/apps/calendar'} className={styles.back}>戻る</Link>
+        <Link href={'/apps/calendar'} className={styles.back}><p>戻る</p><div className={styles.backArrow}></div></Link>
         <div className={styles.dateContainer}>
-            <div className={styles.date}>{year} / {month} / {day} ({wday})<br className={styles.mb} /> <span style={{fontSize: '1.6rem', cursor: 'pointer'}} onClick={() => handleRegister(true, year, month, day, wday)}>イベントを追加</span></div>
+            <div className={styles.header}>
+                <div className={styles.date}>{year} / {month} / {day} ({wday})</div>
+                <div className={styles.addEvent} onClick={() => handleRegister(true, year, month, day, wday)}><AddIcon sx={{fontSize: '3.2rem', marginRight: '10px'}} /></div>
+            </div>
             {events.length > 0 ? (
                 <div>
                 {events?.map((e, i) => (
@@ -127,7 +131,7 @@ const SelectedDate: React.FC = () => {
                             handleEventClick(true, e)}}
                     >
                         <div>{e.title}</div>
-                        {e.starttimeH && e.starttimeM && e.endtimeH && e.endtimeM ? (
+                        {e.starttimeH != null && e.starttimeM != null && e.endtimeH != null && e.endtimeM != null ? (
                             <div>
                                 {e.starttimeH! < 10 ? `0${e.starttimeH}` : e.starttimeH}:{e.starttimeM! < 10 ? `0${e.starttimeM}` : e.starttimeM} - {e.starttimeH! < 10 ? `0${e.endtimeH}` : e.endtimeH}:{e.endtimeM! < 10 ? `0${e.endtimeM}` : e.endtimeM}
                             </div>
