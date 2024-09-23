@@ -61,7 +61,7 @@ const Blog: React.FC<Props> = ({ searchParams }) => {
     const [status, setStatus] = useState<string | null>(null);
 
     const getArticles = async () => {
-      setStatus('now loading...');
+      setStatus(isJa ? '読み込み中...' : 'now loading...');
         try {
             const response = await fetch(
                 isJa ? (
@@ -109,7 +109,7 @@ const Blog: React.FC<Props> = ({ searchParams }) => {
 
     return (
         status !== null ? (
-        <div>{status}</div>
+          <div className={styles.loading}>{status}</div>
         ) : (
         articles && (
             <>

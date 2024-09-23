@@ -60,7 +60,7 @@ const ArticlePage: React.FC<Props> = ({ searchParams }) => {
     const [selectedImage, setSelectedImage] = useState<number>(0);
 
     const getArticle = async () => {
-        setStatus('now loading...');
+        setStatus(isJa ? '読み込み中...' : 'now loading...');
         try {
             const response = await fetch(
                 isJa ? (
