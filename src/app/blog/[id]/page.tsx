@@ -55,11 +55,12 @@ const ArticlePage: React.FC<Props> = ({ searchParams }) => {
     const ACCESS_TOKEN = process.env.NEXT_PUBLIC_CONTENTFUL_CONTENT_DELIVERY_API as string;
 
     const [article, setArticle] = useState<ArticleItem | null>(null);
-    const [loading, setLoading] = useState<boolean>(true);
+    const [status, setStatus] = useState<string | null>(null);
     const [imageUrls, setImageUrls] = useState<string[]>([]);
     const [selectedImage, setSelectedImage] = useState<number>(0);
 
     const getArticle = async () => {
+        setStatus(isJa ? '読み込み中...' : 'now loading...');
         try {
             const response = await fetch(
                 isJa ? (
@@ -69,6 +70,7 @@ const ArticlePage: React.FC<Props> = ({ searchParams }) => {
                 )
             );
             if (!response.ok) {
+                setStatus(isJa ? '読み込みに失敗しました。' : 'failed to load.');
                 throw new Error('Network response was not ok');
             }
             const data: ArticleItem = await response.json();
@@ -79,10 +81,10 @@ const ArticlePage: React.FC<Props> = ({ searchParams }) => {
                 data.fields.images.map(async (image) => await getImageUrl(image.sys.id))
             );
             setImageUrls(urls);
+            setStatus(null);
         } catch (error) {
             console.error('Error fetching article:', error);
-        } finally {
-            setLoading(false);
+            setStatus(isJa ? '読み込みに失敗しました。' : 'failed to load.');
         }
     };
 
@@ -123,8 +125,8 @@ const ArticlePage: React.FC<Props> = ({ searchParams }) => {
     };
 
     return (
-        loading ? (
-            <div className={styles.loading}>読み込み中...</div>
+        status !== null ? (
+            <div className={styles.loading}>{status}</div>
         ) : (
             article && (
                 <>

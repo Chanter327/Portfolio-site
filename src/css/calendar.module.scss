@@ -1,3 +1,7 @@
+.loading {
+    font-size: 2rem;
+}
+
 .calendar {
     width: 100vw;
     margin-left: -2.5vw;
@@ -33,12 +37,21 @@
             }
         }
     }
+    .addEvent {
+        width: fit-content;
+        margin-left: auto;
+        margin-right: 10px;
+        margin-top: 10px;
+        font-size: 1.6rem;
+        border-bottom: 1px solid white;
+        cursor: pointer;
+    }
     .wdays {
         list-style: none;
-        padding-left: 0;
         display: flex;
+        padding-left: 0;
         padding-top: 0;
-        margin-top: 20px;
+        margin-top: 10px;
         font-size: 2rem;
         li {
             flex: 1;
@@ -133,7 +146,7 @@
     .container {
         width: 50vw;
         min-width: 700px;
-        height: 90svh;
+        height: 80svh;
         background-color: #1f1f1f;
         border-radius: 20px 20px;
         padding:  20px;
@@ -294,6 +307,7 @@
         @media screen and (max-width: 800px) {
             width: 100vw;
             min-width: 1px;
+            height: 96svh;
         }
     }
 }

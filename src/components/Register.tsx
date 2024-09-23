@@ -195,7 +195,13 @@ const Register: React.FC<RegisterProps> = (props) => {
                             </li>
                             </>
                         }
-                        <li style={{display: 'flex', alignItems: 'center', justifyContent: 'left', cursor: 'pointer'}} onClick={handleIsWholeDay}><div className={`${styles.checkbox} ${isWholeDay && styles.active}`}></div><div>終日</div></li>
+                        <li style={{marginRight: 'auto', cursor: 'pointer', display: 'flex'}}>
+                            <div onClick={handleIsWholeDay} style={{display: 'flex', alignItems: 'center'}}>
+                                <div className={`${styles.checkbox} ${isWholeDay && styles.active}`} ></div>
+                                <div>終日</div>
+                            </div>
+                            <div style={{flexGrow: 1}}></div>
+                        </li>
                         <li><div>タイトル: </div><input type="text" name="title" id="" onChange={handleEventForm} value={registerForm.title} /></li>
                         <li><div>備考: </div><textarea name="description" id="" aria-braillelabel='false' onChange={handleEventForm} value={registerForm.description!}></textarea></li>
                     </ul>

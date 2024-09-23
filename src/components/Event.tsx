@@ -159,9 +159,12 @@ const Event: React.FC<EventProps> = (props) => {
                                 </li>
                                 </>
                             }
-                            <li style={{display: 'flex', alignItems: 'center', justifyContent: 'left', cursor: 'pointer'}} onClick={handleIsWholeDay}>
-                                <div className={`${styles.checkbox} ${eventForm.isWholeDay && styles.active}`}></div>
-                                <div>終日</div>
+                            <li style={{marginRight: 'auto', cursor: 'pointer', display: 'flex'}}>
+                                <div onClick={handleIsWholeDay} style={{display: 'flex', alignItems: 'center'}}>
+                                    <div className={`${styles.checkbox} ${eventForm.isWholeDay && styles.active}`} ></div>
+                                    <div>終日</div>
+                                </div>
+                                <div style={{flexGrow: 1}}></div>
                             </li>
                             <li>
                                 <div>タイトル: </div>

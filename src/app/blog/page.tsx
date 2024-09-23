@@ -58,9 +58,10 @@ const Blog: React.FC<Props> = ({ searchParams }) => {
     const ACCESS_TOKEN = process.env.NEXT_PUBLIC_CONTENTFUL_CONTENT_DELIVERY_API as string;
 
     const [articles, setArticles] = useState<ArticlesRes | null>(null);
-    const [loading, setLoading] = useState<boolean>(true);
+    const [status, setStatus] = useState<string | null>(null);
 
     const getArticles = async () => {
+      setStatus(isJa ? '読み込み中...' : 'now loading...');
         try {
             const response = await fetch(
                 isJa ? (
@@ -70,14 +71,15 @@ const Blog: React.FC<Props> = ({ searchParams }) => {
                 )
             );
             if (!response.ok) {
+                setStatus(isJa ? '読み込みに失敗しました。' : 'failed to load.');
                 throw new Error('Network response was not ok');
             }
             const data: ArticlesRes = await response.json();
             setArticles(data);
+            setStatus(null);
             } catch (error) {
                 console.error('Error fetching articles:', error);
-            } finally {
-                setLoading(false);  
+                setStatus(isJa ? '読み込みに失敗しました。' : 'failed to load.');
             }
         };
 
@@ -106,8 +108,8 @@ const Blog: React.FC<Props> = ({ searchParams }) => {
     };
 
     return (
-        loading ? (
-        <div>読み込み中...</div>
+        status !== null ? (
+          <div className={styles.loading}>{status}</div>
         ) : (
         articles && (
             <>
