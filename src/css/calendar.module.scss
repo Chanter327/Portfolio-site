@@ -136,7 +136,7 @@
         height: 90svh;
         background-color: #1f1f1f;
         border-radius: 20px 20px;
-        padding: 30px;
+        padding:  20px;
         z-index: 100;
         .btn {
             font-size: 1.4rem;
@@ -147,7 +147,7 @@
         .wrapper {
             display: grid;
             align-items: center;
-            width: 95%;
+            width: 100%;
             height: 100%;
             margin: auto;
             .errorNotice {
@@ -303,12 +303,19 @@
     margin: auto;
     width: 50vw;
     min-width: 700px;
-    .date {
-        font-size: 3.2rem;
-        br.mb {
-            display: none;
-            @media screen and (max-width: 800px) {
-                display: block;
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        flex-wrap: nowrap;
+        .date {
+            font-size: 3.2rem;
+        }
+        .addEvent {
+            font-size: 1.6rem;
+            cursor: pointer;
+            @media screen and (max-width: 400px) {
+                font-size: 1.4rem;
             }
         }
     }
@@ -337,9 +344,37 @@
 }
 
 .back {
+    position: relative;
+    margin-right: auto;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    width: 12rem;
+    text-align: center;
     display: block;
+    text-decoration: none;
     color: inherit;
-    width: fit-content;
-    font-size: 1.6rem;
-    margin: 20px auto;
+    p {
+        padding-left: 20px;
+        font-size: 1.3rem;
+        width: fit-content;
+    }
+    .backArrow {
+        position: absolute;
+        width: 12rem;
+        height: 1.2rem;
+        top: 10px;
+        padding-right: 5rem;
+        border-left: 1px solid white;
+        border-bottom: 1px solid white;
+        transform: skew(-45deg);
+        transform-origin: left;
+        transition: 0.3s;
+    }
+    @media (hover: hover) {
+        &:hover {
+            .backArrow {
+                width: 16rem;
+            }
+        }
+    }
 }
