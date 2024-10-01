@@ -76,11 +76,14 @@ const ArticlePage: React.FC<Props> = ({ searchParams }) => {
             const data: ArticleItem = await response.json();
             setArticle(data);
 
-            // 画像のURLを取得
-            const urls = await Promise.all(
-                data.fields.images.map(async (image) => await getImageUrl(image.sys.id))
-            );
-            setImageUrls(urls);
+            if (data.fields.images && data.fields.images.length > 0) {
+                const urls = await Promise.all(
+                    data.fields.images.map(async (image) => await getImageUrl(image.sys.id))
+                );
+                setImageUrls(urls);
+            } else {
+                setImageUrls([]);
+            }
             setStatus(null);
         } catch (error) {
             console.error('Error fetching article:', error);
@@ -143,7 +146,7 @@ const ArticlePage: React.FC<Props> = ({ searchParams }) => {
                                 </Link>
                             )}
                             <div className={styles.imageList}>
-                                {imageUrls.length > 1 && imageUrls.map((url, index) => (
+                                {imageUrls.length > 0 && imageUrls.map((url, index) => (
                                     <div className={styles.imageContainer} onClick={() => handleTopImage(index)}><Image src={url} alt={`Image ${index + 1}`} layout='fill' /></div>
                                 ))}
                             </div>
